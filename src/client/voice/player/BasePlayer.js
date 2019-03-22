@@ -44,13 +44,19 @@ class BasePlayer extends EventEmitter {
 
   playUnknown(input, options) {
     this.destroyDispatcher();
-
+	
     const isStream = input instanceof ReadableStream;
+	
+	input = input.split(' ');
 
-    const args = isStream ? FFMPEG_ARGUMENTS.slice() : ['-i', input, ...FFMPEG_ARGUMENTS];
+	console.log('TORC:: playunknown |', input);
+
+    const args = isStream ? FFMPEG_ARGUMENTS.slice() : ['-i', ...input, ...FFMPEG_ARGUMENTS];
     if (options.seek) args.unshift('-ss', String(options.seek));
 
     const ffmpeg = new prism.FFmpeg({ args });
+	
+	//console.log('TORC::ffmpeg|', ffmpeg);
     const streams = { ffmpeg };
     if (isStream) {
       streams.input = input;
