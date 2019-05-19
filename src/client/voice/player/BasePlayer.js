@@ -7,7 +7,7 @@ const StreamDispatcher = require('../dispatcher/StreamDispatcher');
 
 const FFMPEG_ARGUMENTS = [
   '-analyzeduration', '0',
-  '-loglevel', '0',
+  '-loglevel', 'error',
   '-f', 's16le',
   '-ar', '48000',
   '-ac', '2',
