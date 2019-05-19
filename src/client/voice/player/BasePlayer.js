@@ -13,6 +13,7 @@ const FFMPEG_ARGUMENTS = [
   '-ac', '2',
 ];
 
+
 /**
  * An Audio Player for a Voice Connection.
  * @private
