@@ -406,8 +406,8 @@ class VoiceConnection extends EventEmitter {
 
     const { ws, udp } = this.sockets;
 
-    ws.on('debug', msg => this.emit('debug', msg));
-    udp.on('debug', msg => this.emit('debug', msg));
+    //ws.on('debug', msg => this.emit('debug', msg));
+    //udp.on('debug', msg => this.emit('debug', msg));
     ws.on('error', err => this.emit('error', err));
     udp.on('error', err => this.emit('error', err));
     ws.on('ready', this.onReady.bind(this));
