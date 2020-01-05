@@ -353,6 +353,7 @@ class VoiceConnection extends EventEmitter {
    * @private
    */
   _disconnect() {
+    this.player.destroy();
     this.cleanup();
     this.status = VoiceStatus.DISCONNECTED;
     /**
@@ -379,6 +380,7 @@ class VoiceConnection extends EventEmitter {
       ws.removeAllListeners('ready');
       ws.removeAllListeners('sessionDescription');
       ws.removeAllListeners('speaking');
+      ws.shutdown();
     }
 
     if (udp) udp.removeAllListeners('error');
